@@ -1,4 +1,5 @@
 <h2>About</h2>
   <% @number.times do |n| %>
     <span><%= n %></span>
+    <span><%= @word if @word.present? %></span>
   <% end %>
