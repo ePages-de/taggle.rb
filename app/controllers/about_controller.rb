@@ -6,7 +6,7 @@ class AboutController < ApplicationController
   end
 
   def show_number
-    fail
+    @products = BeyondPublicApi::Product.products
     @word = ENV['TEST']
     @number = params[:number].to_i
     render 'show'
