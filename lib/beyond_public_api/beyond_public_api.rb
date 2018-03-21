@@ -7,19 +7,17 @@ module BeyondPublicApi
   require_relative 'beyond_connection'
   require_relative 'beyond_jwt'
   require_relative 'beyond_product'
+  require_relative 'beyond_products'
 
   # Beyond product API calls
   class Product
     def self.product(id)
-      # Call request
-      # Parse response into an object
+      id
     end
 
     def self.products
-      response = BeyondRequest.new("/api/products", "get", {locale: "en-US"}).perform
-      # BeyondSite.new(JSON.parse(response.body))
-      # Call request
-      # Parse response into an object
+      response = BeyondRequest.new("/api/products", "get").perform
+      BeyondProducts.new(JSON.parse(response.body))
     end
   end
 end

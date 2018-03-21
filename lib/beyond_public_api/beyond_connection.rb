@@ -22,7 +22,7 @@ class BeyondConnection
       {
         'Cache-Control': "no-cache",
         'Content-Type': "multipart/form-data",
-        'User-Agent': "Krypton"
+        'User-Agent': "Taggle"
       }
     end
 

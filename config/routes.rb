@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'about#show'
+  root 'products#index'
 
-  get '/about', to: 'about#show', as: 'about'
-  get '/about/:number', to: 'about#show_number', as: 'about_number'
+  get '/about/:number', to: 'products#show_number', as: 'about_number'
+
+  resources :products
 end
