@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = BeyondProduct.new(params["id"])
+    @product = BeyondPublicApi::Product.product(params[:id])
   end
 
   def about

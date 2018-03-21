@@ -12,7 +12,9 @@ module BeyondPublicApi
   # Beyond product API calls
   class Product
     def self.product(id)
-      id
+      response = BeyondRequest.new("/api/products/#{id}", "get").perform
+      puts response.body
+      BeyondProduct.new(JSON.parse(response.body))
     end
 
     def self.products
