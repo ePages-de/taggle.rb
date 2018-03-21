@@ -6,6 +6,7 @@ class AboutController < ApplicationController
   end
 
   def show_number
+    fail
     @word = ENV['TEST']
     @number = params[:number].to_i
     render 'show'
