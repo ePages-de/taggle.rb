@@ -1,8 +1,11 @@
-<span><%= @product.id %></span>
-<span><%= @product.sku %></span>
-<span><%= @product.name %></span>
-<li>
-  <% @product.tags.each do |tag| %>
-    <ul><%= tag %></ul>
-  <% end %>
-</li>
+<div id="content">
+  <h1><%= @product.name %></h1>
+  <div id="sku">Product Number: <%= @product.sku %></div>
+  <div id="details"><%= @product.description %></div>
+  <div id="tags">
+    <ul>
+      <% @product.tags.each do |tag| %><li><%= tag %></li><% end %>
+    </ul>
+  </div>
+  <div id="imagecontainer"><img src="<%= @product.image.url %>" /></div>
+</div>
