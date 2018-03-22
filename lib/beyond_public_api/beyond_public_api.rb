@@ -17,7 +17,6 @@ module BeyondPublicApi
   class Product
     def self.product(id)
       response = BeyondRequest.new("/api/products/#{id}", "get").perform
-      puts response.body
       BeyondProduct.new(JSON.parse(response.body))
     end
 
@@ -26,10 +25,15 @@ module BeyondPublicApi
       BeyondProducts.new(JSON.parse(response.body))
     end
   end
+  # Beyond product tags API calls
   class Tags
     def self.list
       response = BeyondRequest.new('/api/product-view/products/search/find-available-tags', "get").perform
       BeyondTags.new(JSON.parse(response.body))
+    end
+
+    def self.update_tags(product_id, tags)
+      BeyondRequest.new("/api/products/#{product_id}", "patch", tags).perform
     end
   end
 end

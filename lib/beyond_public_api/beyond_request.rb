@@ -15,6 +15,7 @@ class BeyondRequest
   def perform(retried = nil)
     resp = send("method_#{@method}", connection)
     unauthorized_token(retried, resp) if error_in_status?(resp.status)
+    puts resp.body
     resp
   end
 
@@ -26,6 +27,8 @@ class BeyondRequest
           faraday_post(faraday)
         when "delete"
           faraday_delete(faraday)
+        when "patch"
+          faraday_patch(faraday)
         end
         faraday_base(faraday)
       end
@@ -49,6 +52,14 @@ class BeyondRequest
     def faraday_delete(faraday)
       faraday
     end
+    
+    def faraday_patch(faraday)
+      faraday.request :multipart
+      faraday.request :url_encoded
+      faraday.headers["Content-Type"] = "application/json"
+      faraday.headers["Accept"] = "application/hal+json"
+      faraday
+    end
 
     def faraday_post(faraday)
       faraday.request :multipart
@@ -69,6 +80,13 @@ class BeyondRequest
         req.url @path
         req.params = @options
         req.options.timeout = default_timeout
+      end
+    end
+
+    def method_patch(conn)
+      conn.patch do |req|
+        req.url @path
+        req.body = @options.to_json
       end
     end
 

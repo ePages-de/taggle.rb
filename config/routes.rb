@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get '/about/:number', to: 'products#show_number', as: 'about_number'
-
+  get '/update_tags/:product_id/:tags', to: 'products#update_tags', as: 'update_tags'
   resources :products
 end

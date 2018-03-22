@@ -10,6 +10,18 @@ class ProductsController < ApplicationController
     @product = BeyondPublicApi::Product.product(params[:id])
   end
 
+  def update_tags
+    tag_array = []
+    params[:tags].split(',').each do |tag|
+      tag_array << tag.sub('%20', ' ')
+    end
+    tags = {
+      'tags' => tag_array
+    }
+    BeyondPublicApi::Tags.update_tags(params[:product_id], tags)
+    redirect_to product_path(params[:product_id])
+  end
+
   def about
     @word = ENV['TEST']
     @number = params[:number].to_i

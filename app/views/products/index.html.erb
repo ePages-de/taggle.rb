@@ -1,6 +1,6 @@
 <div>
   <h2>Tag cloud</h2>
-  <div class="tagcloud" id="example" style="width: 300px;height: 300px;"></div>
+  <div class="tagcloud" id="example" style="width:600px;height:600px;"></div>
 </div>
 
 <div class="main-table">
@@ -24,6 +24,7 @@
     </tbody>
   </table> 
 </div>
+
 <script type="text/javascript">
   var word_array =  <%= raw @tag_cloud.tags.to_json %> ;
   $(function() {

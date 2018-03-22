@@ -11,6 +11,9 @@
   </div>
   <h5 class="card-title">Tags:</h5>
   <ul class="list-group list-group-flush">
-    <% @product.tags.each do |tag| %><li class="list-group-item"><%= tag %></li><% end %>
+    <% @product.tags.each do |tag| %>
+      <% update_tags = @product.tags - [tag] %>
+      <li class="list-group-item"><%= tag %> <%= link_to 'x', update_tags_path(@product.id, update_tags.join(',')) %></li>
+    <% end %>
   </ul>
 </div>
