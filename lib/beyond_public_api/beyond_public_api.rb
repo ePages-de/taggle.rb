@@ -8,6 +8,8 @@ module BeyondPublicApi
   require_relative 'beyond_jwt'
   require_relative 'beyond_product'
   require_relative 'beyond_products'
+  require_relative 'beyond_product_image'
+  require_relative 'beyond_product_price'
 
   # Beyond product API calls
   class Product
