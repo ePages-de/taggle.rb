@@ -1,10 +1,16 @@
-<span><%= @product.id %></span>
-<span><%= @product.sku %></span>
-<span><%= @product.name %></span>
-<li>
-  <% @product.tags.each do |tag| %>
-    <ul><%= tag %></ul>
-  <% end %>
-</li>
-
-<%= image_tag @product.image.href.split("{").first %>
+<%= link_to "Back", root_path %>
+<div class="card mb-3">
+  <h3 class="card-header"><%= @product.name %></h3>
+  <div class="card-body">
+    <h5 class="card-title">Product Number: <%= @product.sku %></h5>
+  </div>
+  <img id="imagecontainer" src="<%= @product.image.href&.split("{").first || '' %>" alt="Card image">
+  <div id="imagecontainer"></div>
+  <div class="card-body">
+    <p class="card-text"><%= @product.description %></p>
+  </div>
+  <h5 class="card-title">Tags:</h5>
+  <ul class="list-group list-group-flush">
+    <% @product.tags.each do |tag| %><li class="list-group-item"><%= tag %></li><% end %>
+  </ul>
+</div>

@@ -1,10 +1,37 @@
-<h2>Products</h2>
-<% @products.products.each do |product| %>
-  <div>
-    <span><%= link_to product.name, product_path(product.id) %></span>
-    <span><%= product.id %></span>
-    <span><%= product.sku %></span>
-    <span><%= product.name %></span>
-  </div>
-<% end %>
+<div>
+  <h2>Tag cloud</h2>
+  <div class="tagcloud" id="example" style="width: 600px;height: 600px;"></div>
+</div>
 
+<div class="main-table">
+  <h2>Products</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Product name</th>
+        <th scope="col">Product SKU</th>
+        <th scope="col">Product Id</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @products.products.each do |product| %>
+      <tr class="table-active">
+        <td><%= link_to product.name, product_path(product.id) %></td>
+        <td><%= product.sku %></td>
+        <td><%= product.id %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table> 
+</div>
+
+
+
+<script type="text/javascript">
+  var word_array =  <%= raw @tag_cloud.to_json %> ;
+  $(function() {
+    // When DOM is ready, select the container element and call
+    // the jQCloud method, passing the array of words as the first argument.
+    $("#example").jQCloud(word_array), {autoResize: true};
+  });
+</script>
