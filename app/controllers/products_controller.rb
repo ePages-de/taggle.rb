@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = BeyondPublicApi::Product.products
-    @tag_cloud = [BeyondPublicApi::Tags.list]
+    @tag_cloud = BeyondPublicApi::Tags.list
   end
 
   def show

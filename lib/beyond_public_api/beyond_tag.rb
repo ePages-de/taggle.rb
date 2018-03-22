@@ -4,7 +4,7 @@
 class BeyondTag
   attr_accessor :name, :value
   def initialize(tag)
-    @name = tag.first.keys.first
-    @value = tag.first.values.first
+    @name = tag.keys.first
+    @value = tag.values.first
   end
 end

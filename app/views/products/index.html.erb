@@ -1,9 +1,8 @@
 <div>
   <h2>Tag cloud</h2>
-  <div class="tagcloud" id="example" style="width: 600px;height: 600px;"></div>
+  <div class="tagcloud" id="example" style="width: 300px;height: 300px;"></div>
 </div>
 
-<<<<<<< Upstream, based on origin/master
 <div class="main-table">
   <h2>Products</h2>
   <table class="table table-hover">
@@ -25,20 +24,11 @@
     </tbody>
   </table> 
 </div>
-
-
-
 <script type="text/javascript">
-  var word_array =  <%= raw @tag_cloud.to_json %> ;
+  var word_array =  <%= raw @tag_cloud.tags.to_json %> ;
   $(function() {
     // When DOM is ready, select the container element and call
     // the jQCloud method, passing the array of words as the first argument.
     $("#example").jQCloud(word_array), {autoResize: true};
   });
 </script>
-=======
-<% @tags.tags.each do |tag|%>
-<%= tag%>
-<% end %>
-
->>>>>>> b7509b6 tag cloud(chistians part)
