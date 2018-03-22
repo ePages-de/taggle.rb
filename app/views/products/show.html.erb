@@ -17,3 +17,7 @@
     <% end %>
   </ul>
 </div>
+<%= form_for :tag, :url => add_tag_path(@product.id) do |f| %>
+  <%= f.text_field :new_tag %>
+  <%= f.hidden_field :old_tags, :value => @product.tags %>
+<% end %>
