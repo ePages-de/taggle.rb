@@ -1,6 +1,6 @@
 # taggle.rb
 
-This is an open source application for our BEYOND API. It enables merchants to easier work with tags by offering e.g. a Tagcloud. You will find a corresponding application for the storefront in the [taggle.js repository](https://github.com/ePages-de/taggle.js).
+This is an open source application for our BEYOND cockpit. It enables merchants to easier work with tags by offering e.g. a Tagcloud. You will find a corresponding application for the storefront in the [taggle.js repository](https://github.com/ePages-de/taggle.js).
 
 ## Authorization
 
