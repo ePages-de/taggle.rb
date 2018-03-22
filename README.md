@@ -31,7 +31,7 @@ Before starting, make sure that you are using the latest ruby version.
 
 In order to use the app, you need to own a Heroku account.
 
-1. Click this button:
+1. Click this button: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ePages-de/taggle.rb)
 2. Enter an app name. (You can freely choose this name.)
 3. Choose your region.
 4. Click on `Deploy App`.
