@@ -65,6 +65,7 @@ li {
   text-shadow: -1px -1px #eee;
   line-height: 30px;
   margin: 0 5px 5px 0;
+  overflow: hidden;
 }
 li a {
   color: #fff;
