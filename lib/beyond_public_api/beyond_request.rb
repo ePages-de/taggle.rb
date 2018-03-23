@@ -15,7 +15,6 @@ class BeyondRequest
   def perform(retried = nil)
     resp = send("method_#{@method}", connection)
     unauthorized_token(retried, resp) if error_in_status?(resp.status)
-    puts resp.body
     resp
   end
 
