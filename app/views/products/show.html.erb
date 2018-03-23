@@ -1,4 +1,4 @@
-<div id="topbar"><%= link_to "<img src="https://raw.githubusercontent.com/ePages-de/taggle.rb/master/app/assets/images/taggle-rb.png">", root_path %></div>
+<div id="topbar"><img src="https://raw.githubusercontent.com/ePages-de/taggle.rb/master/app/assets/images/taggle-rb.png"></div>
   <div id="content">
     <div id="imagecontainer">
       <img src="<%= @product.image.href&.split("{").first || '' %>" alt="<%= @product.name %>" />
