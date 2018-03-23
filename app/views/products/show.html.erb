@@ -1,23 +1,24 @@
-<%= link_to "Back", root_path %>
-<div class="card mb-3">
-  <h3 class="card-header"><%= @product.name %></h3>
-  <div class="card-body">
-    <h5 class="card-title">Product Number: <%= @product.sku %></h5>
+<div id="topbar"><%= link_to "<img src="https://raw.githubusercontent.com/ePages-de/taggle.rb/master/app/assets/images/taggle-rb.png">", root_path %></div>
+  <div id="content">
+    <div id="imagecontainer">
+      <img src="<%= @product.image.href&.split("{").first || '' %>" alt="<%= @product.name %>" />
+    </div>
+    <div id="details">
+      <h1><%= @product.name %></h1>
+      <div id="sku">Product Number: <%= @product.sku %></div>
+      <div id="price">&pound;295.00</div>
+      <div id="description"><%= @product.description %></div>
+      <div id="tags">
+        <ul>
+          <% @product.tags.each do |tag| %>
+            <% update_tags = @product.tags - [tag] %>
+            <li><%= tag %> <%= link_to 'x', update_tags_path(@product.id, update_tags.join(',')) %></li>
+          <% end %>
+        </ul>
+        <%= form_for :tag, :url => add_tag_path(@product.id) do |f| %>
+          <%= f.text_field :new_tag %>
+          <%= f.hidden_field :old_tags, :value => @product.tags %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <img id="imagecontainer" src="<%= @product.image.href&.split("{").first || '' %>" alt="Card image">
-  <div id="imagecontainer"></div>
-  <div class="card-body">
-    <p class="card-text"><%= @product.description %></p>
-  </div>
-  <h5 class="card-title">Tags:</h5>
-  <ul class="list-group list-group-flush">
-    <% @product.tags.each do |tag| %>
-      <% update_tags = @product.tags - [tag] %>
-      <li class="list-group-item"><%= tag %> <%= link_to 'x', update_tags_path(@product.id, update_tags.join(',')) %></li>
-    <% end %>
-  </ul>
-</div>
-<%= form_for :tag, :url => add_tag_path(@product.id) do |f| %>
-  <%= f.text_field :new_tag %>
-  <%= f.hidden_field :old_tags, :value => @product.tags %>
-<% end %>
