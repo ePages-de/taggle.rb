@@ -6,8 +6,8 @@ class BeyondProducts
 
   def initialize(json_products)
     @products = []
-    @page = json_products["page"]["size"]
-    json_products.dig("_embedded", "products").each do |json_product|
+    @page = json_products.dig("page", "size")
+    json_products.dig("_embedded", "products")&.each do |json_product|
       @products << BeyondProduct.new(json_product)
     end
   end

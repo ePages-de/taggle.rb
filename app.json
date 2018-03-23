@@ -1,0 +1,7 @@
+{
+  "name": "Taggle app",
+  "description": "Taggle app skeleton",
+  "repository": "https://github.com/ePages-de/taggle.rb",
+  "logo": "https://raw.githubusercontent.com/ePages-de/taggle.rb/master/app/assets/images/taggle.png",
+  "keywords": ["ruby", "rails", "ePages", "demo-app"]
+}

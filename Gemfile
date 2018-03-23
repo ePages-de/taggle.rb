@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -35,6 +33,12 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'dotenv-rails'
 gem 'faraday'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
+gem 'jqcloud-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
